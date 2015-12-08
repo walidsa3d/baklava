@@ -2,5 +2,7 @@ include LICENSE
 include README.md
 include AUTHORS
 include HISTORY
+include CONTRIBUTING.md
+import CODE_OF_CONDUCT.md
 
 recursive-include docs *

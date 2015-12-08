@@ -29,14 +29,14 @@ class Kickass(BaseProvider):
     def get_top(self):
         search_url = self.base_url + '/movies'
         data = requests.get(search_url, headers=self.headers).text
-        soup = BS(data, "lxml")
+        soup = BS(data, 'lxml')
         torrents = []
-        table = soup.find(class_="data")
+        table = soup.find(class_='data')
         for row in table.find_all('tr')[1:]:
             cells = row.find_all('td')
             t = Torrent()
-            t.title = cells[0].find(class_="cellMainLink").text
-            t.torrent_url = cells[0].find_all("a")[3].get('href')
+            t.title = cells[0].find(class_='cellMainLink').text
+            t.torrent_url = cells[0].find_all('a')[3].get('href')
             t.size = string_to_byte(cells[1].text)
             t.seeds = int(cells[4].text)
             torrents.append(t)

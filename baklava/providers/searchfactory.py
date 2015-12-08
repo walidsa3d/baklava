@@ -31,10 +31,11 @@ class SearchFactory(object):
         provider_class, site_url = providers.get(
             self.provider, ('tpb', TPB_URL))
         results = provider_class(site_url).search(query)
-        self.results = results
+        self.results = results[:max]
         return self
 
     def sortBy(self, *args):
+        '''sort results by given criteria'''
         criteria = ['seeds', 'size']
         for k in args:
             if k in criteria:
@@ -43,6 +44,7 @@ class SearchFactory(object):
         return self
 
     def filterBy(self, **kwargs):
+        ''' filter results by given criteria'''
         criteria = ['seeds', 'size']
         for k, v in kwargs.iteritems():
             if k in criteria:

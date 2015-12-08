@@ -9,6 +9,7 @@ from models import Torrent
 from provider import BaseProvider
 from utils import string_to_byte
 
+
 class TPB(BaseProvider):
 
     def __init__(self, base_url):

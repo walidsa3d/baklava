@@ -13,7 +13,7 @@ class RarbgAPI(BaseProvider):
     def _get_token(self):
         token_payload = {
             'get_token': 'get_token',
-            'app_id': 'xx',
+            'app_id': 'baklava',
         }
         response = requests.get(self.base_url, params=token_payload).json()
         self.token = response['token']
@@ -24,7 +24,7 @@ class RarbgAPI(BaseProvider):
             'sort': 'seeders',
             'category': 'movies',
             'mode': 'search',
-            'app_id': 'xxx',
+            'app_id': 'baklava',
             'format': 'json_extended',
             'search_string': query,
             'token': self.token,

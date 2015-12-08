@@ -10,5 +10,5 @@ def string_to_byte(stringvar):
     encoded = stringvar.encode('ascii', errors='ignore')
     for k, v in french_units.iteritems():
         encoded = encoded.replace(k, v)
-    dv = bitmath.parse_string(encoded)
-    return int(dv.to_EB()._byte_value)
+    parsed = bitmath.parse_string(encoded)
+    return int(parsed.to_EB()._byte_value)
